@@ -6,6 +6,7 @@
 """"""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/vimfiles/plugged')
 Plug 'vim-scripts/a.vim'
+Plug 'justmao945/vim-clang'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -90,6 +91,8 @@ set mousemodel=extend
 set keymodel=startsel,stopsel
 " Use xterm style selection
 set selection=inclusive
+" Prefer utf8
+set encoding=utf-8
 
 " Add optional packages.
 "
@@ -113,7 +116,7 @@ if has("clipboard")
     vnoremap <C-C> "+y
 
     map <C-V>		"+gP
-    imap <C-V>		<C-O>"+gP
+    imap <C-V>		<C-O>"+gp
     cmap <C-V>		<C-R>+
 endif
 
@@ -181,6 +184,7 @@ au BufRead,BufNewFile *.java set tags+=~/.jtags
 " Search in obvious places for project include files
 set path+=./../inc,./../include
 
+" Don't indent namespaces
 set cino+=(0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -250,6 +254,14 @@ map ]] j0[[%/{<CR>
 map [] k$][%?}<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+" External tools
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <F11> :%!clang-format --style=WebKit
+" TODO: make a style file for clang-format
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 " Some abbreviations
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -273,5 +285,12 @@ func! ResetCounter()
   return ''
 endfunc
 
+""""""""""""""""""""""""""""""""""""""""""
+" Options for vim-clang
+""""""""""""""""""""""""""""""""""""""""""
 
+" Auto popup is annoying
+let g:clang_auto = 0
+
+set completeopt=menu,preview
 
