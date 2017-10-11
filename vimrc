@@ -109,15 +109,11 @@ command! CDC cd %:p:h
 " clipboard
 """"""""""""""""""""""""""""""""""""""""
 if has("clipboard")
-    " CTRL-X and SHIFT-Del are Cut
     vnoremap <C-X> "+x
-
-    " CTRL-C and CTRL-Insert are Copy
     vnoremap <C-C> "+y
 
-    " CTRL-V and SHIFT-Insert are Paste
     map <C-V>		"+gP
-
+    imap <C-V>		<C-O>"+gP
     cmap <C-V>		<C-R>+
 endif
 
@@ -246,6 +242,12 @@ map <leader>j g<C-]>
 
 " cd to dir of current file.
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
+" Fix navigation in K&R style
+map [[ ?{<CR>w99[{
+map ][ /}<CR>b99]}
+map ]] j0[[%/{<CR>
+map [] k$][%?}<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Some abbreviations
