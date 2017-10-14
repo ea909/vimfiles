@@ -7,6 +7,8 @@
 call plug#begin('~/vimfiles/plugged')
 Plug 'vim-scripts/a.vim'
 Plug 'justmao945/vim-clang'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-lua-ftplugin'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -82,7 +84,7 @@ set nrformats-=octal
 " no lang map
 set nolangremap
 " Shorter messages
-set shortmess=a
+set shortmess=afilnxtToO
 " Always use visual mode, more flexible (behave like xterm)
 set selectmode=
 " Use xterm style mousing
@@ -209,15 +211,8 @@ map <leader>tm :tabmove<cr>
 map <leader>t] :tabnext<cr>
 map <leader>t[ :tabprev<cr>
 
-" comment command to comment a line
-map <leader>c 0i//<Space><esc>$
-au BufRead,BufNewFile *.rb,*.py map <leader>c 0i#<Space><esc>$
-au BufRead,BufNewFile *.vim,vimrc map <leader>c 0i"<Space><esc>$
-
-" uncomment command
-map <leader>u 0xx$
-au BufRead,BufNewFile *.rb,*.py map <leader>c 0xx$
-au BufRead,BufNewFile *.vim,vimrc map <leader>c 0xx$
+" run build
+map <leader>b :make<cr>
 
 " Show and hide menu bar
 map <leader>me :set guioptions=m<cr>
