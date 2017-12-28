@@ -6,9 +6,8 @@
 """"""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/vimfiles/plugged')
 Plug 'vim-scripts/a.vim'
-Plug 'justmao945/vim-clang'
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-lua-ftplugin'
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -223,7 +222,7 @@ map <leader>ve :set virtualedit=all<cr>
 map <leader>vd :set virtualedit=<cr>
 
 " Autcomplete mappings
-imap <C-Space> <C-x><C-o> 
+"imap <C-Space> <C-x><C-o> 
 imap <C-Tab> <C-x><C-]>
 
 " Alternative to ESC
@@ -234,10 +233,15 @@ map <leader>aa :A<cr>
 map <leader>as :AS<cr>
 map <leader>av :AV<cr>
 
-" Preview tag under cursor
-map <leader>, <C-W>g}
+" Tag based completion and nav
+map <leader>, <C-W>}
+"map <leader>j g<C-]>
+
+" YCM based completion and nav
+"map <leader>, :pclose<cr>:w<cr>:YcmCompleter GoTo<cr>:pedit<cr><C-O>
 map <leader>. :pclose<cr>
-map <leader>j g<C-]>
+map <leader>j :YcmCompleter GoTo<cr>
+map <leader>k <C-O>
 
 " cd to dir of current file.
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
@@ -252,8 +256,8 @@ map [] k$][%?}<CR>
 " External tools
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-map <F11> :%!clang-format --style=WebKit
+map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <F7> :%!clang-format --style=WebKit
 " TODO: make a style file for clang-format
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -281,11 +285,25 @@ func! ResetCounter()
 endfunc
 
 """"""""""""""""""""""""""""""""""""""""""
-" Options for vim-clang
+" Options for ycm
 """"""""""""""""""""""""""""""""""""""""""
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_warning_symbol     = 'W'
+let g:ycm_error_symbol       = 'E'
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_goto_buffer_command = 'same-buffer'
 
-" Auto popup is annoying
-let g:clang_auto = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
-set completeopt=menu,preview
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_min_num_identifier_candidate_chars = 3
+let g:ycm_max_num_identifier_candidates = 10
+
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_always_populate_location_list = 1
+
+let g:ycm_filepath_completion_use_working_dir = 1
+
+set completeopt=menuone,preview
 
