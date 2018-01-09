@@ -46,8 +46,9 @@ set expandtab
 " Use 4 spaces in soft tab
 set softtabstop=4
 " Set font
-set gfn=Droid_Sans_Mono:h10:cANSI
+set gfn=DejaVu_Sans_Mono:h11
 " Terminal has a dark background
+" Colorscheme will overwrite below if needed
 set background=dark
 " 80 columns ( uncomment if used in terminal )
 set columns=80
