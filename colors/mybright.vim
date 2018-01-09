@@ -16,17 +16,22 @@ let colors_name = "morning"
 hi Normal ctermfg=Black ctermbg=LightGrey guifg=Black guibg=gray90 
 
 " Groups used in the 'highlight' and 'guicursor' options default value.
+" These are different from the morning scheme
+hi Cursor guibg=Orange guifg=NONE
+hi lCursor guibg=Orange guifg=NONE
+hi Visual term=reverse ctermbg=grey guibg=#FFCC55
+hi VertSplit term=reverse cterm=reverse gui=reverse guifg=Black guibg=Black
+hi WildMenu term=standout ctermbg=Yellow ctermfg=Black guibg=Orange guifg=Black
+hi IncSearch term=reverse cterm=reverse gui=none guibg=Orange guifg=White
+
+" Groups used in the 'highlight' and 'guicursor' options default value.
+" These are same as the morning scheme
 hi ErrorMsg term=standout ctermbg=DarkRed ctermfg=White guibg=Red guifg=White
-hi IncSearch term=reverse cterm=reverse gui=reverse
 hi ModeMsg term=bold cterm=bold gui=bold
 hi StatusLine term=reverse,bold cterm=reverse,bold gui=reverse,bold
 hi StatusLineNC term=reverse cterm=reverse gui=reverse
-hi VertSplit term=reverse cterm=reverse gui=reverse guifg=Black guibg=Black
-hi Visual term=reverse ctermbg=grey guibg=#FFCC55
 hi VisualNOS term=underline,bold cterm=underline,bold gui=underline,bold
 hi DiffText term=reverse cterm=bold ctermbg=Red gui=bold guibg=Red
-hi Cursor guibg=Orange guifg=NONE
-hi lCursor guibg=Orange guifg=NONE
 hi Directory term=bold cterm=bold guifg=Black gui=bold
 hi LineNr term=underline ctermfg=Brown guifg=Brown
 hi MoreMsg term=bold ctermfg=DarkGreen gui=bold guifg=SeaGreen
@@ -34,9 +39,7 @@ hi NonText term=bold ctermfg=Blue gui=bold guifg=Black guibg=grey80
 hi Question term=standout ctermfg=DarkGreen gui=bold guifg=SeaGreen
 hi Search term=reverse ctermbg=Yellow ctermfg=NONE guibg=Yellow guifg=NONE
 hi SpecialKey term=bold ctermfg=DarkBlue guifg=Blue
-hi Title term=bold ctermfg=DarkMagenta gui=bold guifg=Magenta
 hi WarningMsg term=standout ctermfg=DarkRed guifg=Red
-hi WildMenu term=standout ctermbg=Yellow ctermfg=Black guibg=Yellow guifg=Black
 hi Folded term=standout ctermbg=Grey ctermfg=DarkBlue guibg=LightGrey guifg=DarkBlue
 hi FoldColumn term=standout ctermbg=Grey ctermfg=DarkBlue guibg=Grey guifg=DarkBlue
 hi DiffAdd term=bold ctermbg=LightBlue guibg=LightBlue
@@ -46,6 +49,9 @@ hi CursorLine term=underline cterm=underline guibg=grey80
 hi CursorColumn term=reverse ctermbg=grey guibg=grey80
 
 " Colors for syntax highlighting
+
+" Titles (in markdown, mostly) are red
+hi Title term=bold ctermfg=DarkMagenta gui=none guifg=Red
 
 " Comments and Preprocessor stand out from source code:
 hi Comment guifg=Blue
