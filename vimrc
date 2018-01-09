@@ -46,7 +46,7 @@ set expandtab
 " Use 4 spaces in soft tab
 set softtabstop=4
 " Set font
-set gfn=Droid_Sans_Mono:h12:cANSI
+set gfn=Droid_Sans_Mono:h10:cANSI
 " Terminal has a dark background
 set background=dark
 " 80 columns ( uncomment if used in terminal )
@@ -135,8 +135,8 @@ noremap <C-Q>		<C-V>
 
 " Turn on syntax and good color scheme
 syntax on
-let c_comment_strings=1
-colorscheme desert
+let c_comment_strings=0
+colorscheme mybright
 
 " enable auto indent based on filetype
 filetype on
