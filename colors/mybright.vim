@@ -49,6 +49,7 @@ hi CursorLine term=underline cterm=underline guibg=grey80
 hi CursorColumn term=reverse ctermbg=grey guibg=grey80
 
 " Colors for syntax highlighting
+" ------------------------------
 
 " Titles (in markdown, mostly) are red
 hi Title term=bold ctermfg=DarkMagenta gui=none guifg=Red
@@ -64,9 +65,12 @@ hi Special  term=bold ctermfg=DarkMagenta guifg=Black guibg=grey95
 hi String      term=underline ctermfg=Black guifg=#660000 
 hi SpecialChar term=underline ctermfg=Black guifg=#660000 guibg=grey95
 
-" Type definitions (struct, typedef) stand out a little bit
+" Type definitions (struct, typedef) stand out a little bit, green
 hi Structure ctermfg=Black guifg=#006600 gui=none
 hi Typedef ctermfg=Black guifg=#006600 gui=none
+
+" Keywords are slightly blue
+hi Statement ctermfg=Black guifg=#000066 gui=none
 
 " TODO, etc are yellow
 hi Todo guibg=Yellow
@@ -74,9 +78,8 @@ hi Todo guibg=Yellow
 " Errors are red
 hi Error guifg=Red guibg=gray95
 
-" Everything else looks the same
+" Everything else looks the same, Black
 hi Constant term=underline ctermfg=Black guifg=Black 
-hi Statement ctermfg=Black guifg=Black gui=none
 hi Type ctermfg=Black guifg=Black gui=none
 hi Type ctermfg=Black guifg=Black gui=none
 hi Identifier guifg=Black   
