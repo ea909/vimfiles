@@ -137,7 +137,14 @@ noremap <C-Q>		<C-V>
 " Turn on syntax and good color scheme
 syntax on
 let c_comment_strings=0
-colorscheme mybright
+
+" Use a dark colorscheme at night when lighting is poorer
+let startup_hour=str2nr(strftime("%H"))
+if startup_hour < 18
+    colorscheme mybright
+else
+    colorscheme mydark
+endif
 
 " enable auto indent based on filetype
 filetype on
