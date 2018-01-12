@@ -46,7 +46,7 @@ set expandtab
 " Use 4 spaces in soft tab
 set softtabstop=4
 " Set font
-set gfn=DejaVu_Sans_Mono:h11
+set gfn=DejaVu_Sans_Mono:h12
 " Terminal has a dark background
 " Colorscheme will overwrite below if needed
 set background=dark
@@ -140,7 +140,7 @@ let c_comment_strings=0
 
 " Use a dark colorscheme at night when lighting is poorer
 let startup_hour=str2nr(strftime("%H"))
-if startup_hour < 18
+if startup_hour < 18 && startup_hour > 4
     colorscheme mybright
 else
     colorscheme mydark
