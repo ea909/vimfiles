@@ -6,8 +6,8 @@
 """"""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/vimfiles/plugged')
 Plug 'vim-scripts/a.vim'
-Plug 'xolox/vim-misc'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'xolox/vim-misc'
+"Plug 'Valloric/YouCompleteMe' Too Aggressive!
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -95,6 +95,9 @@ set keymodel=startsel,stopsel
 set selection=inclusive
 " Prefer utf8
 set encoding=utf-8
+" Default splits are wierd
+set splitbelow
+set splitright
 
 " Add optional packages.
 "
@@ -123,7 +126,7 @@ if has("clipboard")
 endif
 
 " Saves files, only usable out of terminal
-noremap <C-S>		:update<CR>
+noremap  <C-S>		:update<CR>
 vnoremap <C-S>		<C-C>:update<CR>
 inoremap <C-S>		<C-O>:update<CR>
 
@@ -183,18 +186,18 @@ endif
 " Default to any tags file in the current dir, or one above
 set tags=./tags,./../tags
 " Keep a good tags file for c libs, winapi, etc in home dir
-" and one for python
-au BufRead,BufNewFile *.py set tags+=~/.pytags
-" and one for Ruby
-au BufRead,BufNewFile *.rb set tags+=~/.rbtags
-" and one for Java
+au BufRead,BufNewFile *.py   set tags+=~/.pytags
+au BufRead,BufNewFile *.rb   set tags+=~/.rbtags
 au BufRead,BufNewFile *.java set tags+=~/.jtags
+au BufRead,BufNewFile *.c    set tags+=~/.tags
+au BufRead,BufNewFile *.cpp  set tags+=~/.tags
 
 " Search in obvious places for project include files
 set path+=./../inc,./../include
 
 " Don't indent namespaces
 set cino+=(0
+set cinoptions+=:0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Now, add new key mappings
@@ -210,13 +213,14 @@ nmap <C-L> <C-W>l
 let mapleader=","
 let maplocalleader=","
 
+" I never use tabs, actually
 " map leader+t to various tab
-map <leader>te :tabedit<cr>
-map <leader>tn :tabnew<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove<cr>
-map <leader>t] :tabnext<cr>
-map <leader>t[ :tabprev<cr>
+"map <leader>te :tabedit<cr>
+"map <leader>tn :tabnew<cr>
+"map <leader>tc :tabclose<cr>
+"map <leader>tm :tabmove<cr>
+"map <leader>t] :tabnext<cr>
+"map <leader>t[ :tabprev<cr>
 
 " run build
 map <leader>b :make<cr>
@@ -230,8 +234,8 @@ map <leader>ve :set virtualedit=all<cr>
 map <leader>vd :set virtualedit=<cr>
 
 " Autcomplete mappings
-"imap <C-Space> <C-x><C-o> 
-imap <C-Tab> <C-x><C-]>
+imap <C-Space> <C-x><C-o> 
+imap <C-Tab>   <C-x><C-]>
 
 " Alternative to ESC
 inoremap kj <ESC>
@@ -243,13 +247,13 @@ map <leader>av :AV<cr>
 
 " Tag based completion and nav
 map <leader>, <C-W>}
-"map <leader>j g<C-]>
+map <leader>j g<C-]>
+map <leader>k <C-T>
+map <leader>. :pclose<cr>
 
 " YCM based completion and nav
 "map <leader>, :pclose<cr>:w<cr>:YcmCompleter GoTo<cr>:pedit<cr><C-O>
-map <leader>. :pclose<cr>
-map <leader>j :YcmCompleter GoTo<cr>
-map <leader>k <C-O>
+"map <leader>j :YcmCompleter GoTo<cr>
 
 " cd to dir of current file.
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
@@ -265,8 +269,6 @@ map [] k$][%?}<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-map <F7> :%!clang-format --style=WebKit
-" TODO: make a style file for clang-format
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Some abbreviations
