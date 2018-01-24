@@ -268,7 +268,9 @@ map [] k$][%?}<CR>
 " External tools
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+"map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+" I actually /don't/ want prototypes
+map <F8> :!ctags -R --fields=+iaS --extra=+q .<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Some abbreviations
