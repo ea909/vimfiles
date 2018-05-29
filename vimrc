@@ -250,6 +250,7 @@ inoremap kj <ESC>
 " a.vim mappings, switch to and split to
 map <leader>a :A<cr>
 map <leader>s :AV<cr>
+map <leader>d :only<cr>
 "map <leader>as :AS<cr>
 
 " Tag based completion and nav
