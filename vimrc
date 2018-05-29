@@ -6,8 +6,8 @@
 """"""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/vimfiles/plugged')
 Plug 'vim-scripts/a.vim'
-"Plug 'xolox/vim-misc'
-"Plug 'Valloric/YouCompleteMe' Too Aggressive!
+Plug 'xolox/vim-misc'
+Plug 'Valloric/YouCompleteMe' 
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""
