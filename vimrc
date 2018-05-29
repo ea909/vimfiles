@@ -6,7 +6,7 @@
 """"""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/vimfiles/plugged')
 Plug 'vim-scripts/a.vim'
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 "Plug 'xolox/vim-misc'
 "Plug 'Valloric/YouCompleteMe' 
 call plug#end()
@@ -226,8 +226,8 @@ let maplocalleader=","
 "map <leader>t] :tabnext<cr>
 "map <leader>t[ :tabprev<cr>
 map <leader>tn :tabnew<cr>
-map <leader>te :set showtabline=1
-map <leader>td :set showtabline=0
+map <leader>te :set showtabline=1<cr>
+map <leader>td :set showtabline=0<cr>
 
 " run build
 map <leader>b :make<cr>
@@ -353,6 +353,7 @@ else
     map <F11>   :slient exec "!debug.sh"<cr>
 endif
 
-map <F12> :mksession session.vim<cr>
+map <F12>   :mksession session.vim<cr>
+map <S-F12> :source    session.vim<cr>
 
 
