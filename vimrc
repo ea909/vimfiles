@@ -6,8 +6,9 @@
 """"""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/vimfiles/plugged')
 Plug 'vim-scripts/a.vim'
-Plug 'xolox/vim-misc'
-Plug 'Valloric/YouCompleteMe' 
+Plug 'ludovicchabant/vim-gutentags'
+"Plug 'xolox/vim-misc'
+"Plug 'Valloric/YouCompleteMe' 
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -246,16 +247,16 @@ map <leader>s :AV<cr>
 "map <leader>as :AS<cr>
 
 " Tag based completion and nav
-" map <leader>, <C-W>}
-" map <leader>j g<C-]>
-" map <leader>k <C-T>
-" map <leader>. :pclose<cr>
+map <leader>, <C-W>}
+map <leader>j g<C-]>
+map <leader>k <C-T>
+map <leader>. :pclose<cr>
 
 " YCM based completion and nav
-map <leader>, :pclose<cr>:w<cr>:YcmCompleter GoTo<cr>:pedit<cr><C-O>
-map <leader>j :YcmCompleter GoTo<cr>
-map <leader>k <C-O>
-map <leader>. :pclose<cr>
+"map <leader>, :pclose<cr>:w<cr>:YcmCompleter GoTo<cr>:pedit<cr><C-O>
+"map <leader>j :YcmCompleter GoTo<cr>
+"map <leader>k <C-O>
+"map <leader>. :pclose<cr>
 
 " Fix navigation in K&R style
 map [[ ?{<CR>w99[{
