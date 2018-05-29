@@ -60,7 +60,7 @@ set guioptions=
 set foldmethod=marker
 " When typing txt or comments, wrap at 78 chars
 set textwidth=78
-" 50 lines of cmd hist
+" 200 lines of cmd hist
 set history=200
 " display imcomplete commands
 set showcmd
@@ -240,23 +240,22 @@ imap <C-Tab>   <C-x><C-]>
 " Alternative to ESC
 inoremap kj <ESC>
 
-" a.vim mappings
-map <leader>aa :A<cr>
-map <leader>as :AS<cr>
-map <leader>av :AV<cr>
+" a.vim mappings, switch to and split to
+map <leader>a :A<cr>
+map <leader>s :AV<cr>
+"map <leader>as :AS<cr>
 
 " Tag based completion and nav
-map <leader>, <C-W>}
-map <leader>j g<C-]>
-map <leader>k <C-T>
-map <leader>. :pclose<cr>
+" map <leader>, <C-W>}
+" map <leader>j g<C-]>
+" map <leader>k <C-T>
+" map <leader>. :pclose<cr>
 
 " YCM based completion and nav
-"map <leader>, :pclose<cr>:w<cr>:YcmCompleter GoTo<cr>:pedit<cr><C-O>
-"map <leader>j :YcmCompleter GoTo<cr>
-
-" cd to dir of current file.
-nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+map <leader>, :pclose<cr>:w<cr>:YcmCompleter GoTo<cr>:pedit<cr><C-O>
+map <leader>j :YcmCompleter GoTo<cr>
+map <leader>k <C-O>
+map <leader>. :pclose<cr>
 
 " Fix navigation in K&R style
 map [[ ?{<CR>w99[{
@@ -318,4 +317,5 @@ let g:ycm_always_populate_location_list = 1
 let g:ycm_filepath_completion_use_working_dir = 1
 
 set completeopt=menuone,preview
+
 
