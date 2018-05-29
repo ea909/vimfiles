@@ -346,14 +346,14 @@ map <F9>    :make<cr>
 if has("win32")
     set makeprg=build.bat
     map <F10>   :silent exec "!run.bat"<cr>
-    map <F11>   :slient exec "!debug.bat"<cr>
+    map <S-F10>   :slient exec "!debug.bat"<cr>
 else
     set makeprg=build.sh
     map <F10>   :silent exec "!run.sh"<cr>
-    map <F11>   :slient exec "!debug.sh"<cr>
+    map <S-F10>   :slient exec "!debug.sh"<cr>
 endif
 
-map <F12>   :mksession session.vim<cr>
-map <S-F12> :source    session.vim<cr>
+map <F11>   :mksession session.vim<cr>
+map <S-F11> :source    session.vim<cr>
 
 
