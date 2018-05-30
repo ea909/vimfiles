@@ -360,4 +360,16 @@ endif
 map <F11>   :mksession session.vim<cr>
 map <S-F11> :source    session.vim<cr>
 
+""""""""""""""""""""""""""""""""""""""""""
+" title string
+""""""""""""""""""""""""""""""""""""""""""
+
+set titlestring=
+set titlestring+=tab:
+set titlestring+=\ %{tabpagenr()}
+set titlestring+=\ file:
+set titlestring+=\ 
+set titlestring+=%f
+set titlestring+=\ 
+set titlestring+=%m
 
