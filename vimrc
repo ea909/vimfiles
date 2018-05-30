@@ -7,8 +7,9 @@
 call plug#begin('~/vimfiles/plugged')
 Plug 'vim-scripts/a.vim'
 Plug 'tikhomirov/vim-glsl'
+"Plug 'ludovicchabant/vim-gutentags'
 "Plug 'xolox/vim-misc'
-"Plug 'Valloric/YouCompleteMe' Too Aggressive!
+"Plug 'Valloric/YouCompleteMe' 
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -61,7 +62,7 @@ set guioptions=
 set foldmethod=marker
 " When typing txt or comments, wrap at 78 chars
 set textwidth=78
-" 50 lines of cmd hist
+" 200 lines of cmd hist
 set history=200
 " display imcomplete commands
 set showcmd
@@ -99,6 +100,9 @@ set encoding=utf-8
 " Default splits are wierd
 set splitbelow
 set splitright
+" No tab line please
+set showtabline=0
+set tabpagemax=8
 
 " Add optional packages.
 "
@@ -216,7 +220,7 @@ nmap <C-L> <C-W>l
 let mapleader=","
 let maplocalleader=","
 
-" I never use tabs, actually
+" I never use these, actually
 " map leader+t to various tab
 "map <leader>te :tabedit<cr>
 "map <leader>tn :tabnew<cr>
@@ -224,6 +228,9 @@ let maplocalleader=","
 "map <leader>tm :tabmove<cr>
 "map <leader>t] :tabnext<cr>
 "map <leader>t[ :tabprev<cr>
+map <leader>tn :tabnew<cr>
+map <leader>te :set showtabline=1<cr>
+map <leader>td :set showtabline=0<cr>
 
 " run build
 map <leader>b :make<cr>
@@ -237,16 +244,17 @@ map <leader>ve :set virtualedit=all<cr>
 map <leader>vd :set virtualedit=<cr>
 
 " Autcomplete mappings
-imap <C-Space> <C-x><C-o> 
-imap <C-Tab>   <C-x><C-]>
+imap <C-Space> <C-x><C-]> 
+imap <C-Tab>   <C-x><C-o>
 
 " Alternative to ESC
 inoremap kj <ESC>
 
-" a.vim mappings
-map <leader>aa :A<cr>
-map <leader>as :AS<cr>
-map <leader>av :AV<cr>
+" a.vim mappings, switch to and split to
+map <leader>a :A<cr>
+map <leader>s :AV<cr>
+map <leader>d :only<cr>
+"map <leader>as :AS<cr>
 
 " Tag based completion and nav
 map <leader>, <C-W>}
@@ -257,9 +265,8 @@ map <leader>. :pclose<cr>
 " YCM based completion and nav
 "map <leader>, :pclose<cr>:w<cr>:YcmCompleter GoTo<cr>:pedit<cr><C-O>
 "map <leader>j :YcmCompleter GoTo<cr>
-
-" cd to dir of current file.
-nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+"map <leader>k <C-O>
+"map <leader>. :pclose<cr>
 
 " Fix navigation in K&R style
 map [[ ?{<CR>w99[{
@@ -273,7 +280,7 @@ map [] k$][%?}<CR>
 
 "map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 " I actually /don't/ want prototypes
-map <F8> :!ctags -R --fields=+iaS --extra=+q .<CR>
+"map <F8> :!ctags -R --fields=+iaS --extra=+q .<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Some abbreviations
@@ -321,4 +328,36 @@ let g:ycm_always_populate_location_list = 1
 let g:ycm_filepath_completion_use_working_dir = 1
 
 set completeopt=menuone,preview
+
+""""""""""""""""""""""""""""""""""""""""""
+" F keys
+""""""""""""""""""""""""""""""""""""""""""
+
+" F1-F8 are tabs. I really don't understand why most editors don't map tabs to
+" f-keys. F-keys are seldom bound to any
+map <F1> :tabnext 1<cr>
+map <F2> :tabnext 2<cr>
+map <F3> :tabnext 3<cr>
+map <F4> :tabnext 4<cr>
+map <F5> :tabnext 5<cr>
+map <F6> :tabnext 6<cr>
+map <F7> :tabnext 7<cr>
+map <F8> :tabnext 8<cr>
+
+"F9-F12 are build, run, debug, save session
+map <F9>    :make<cr>
+
+if has("win32")
+    set makeprg=build.bat
+    map <F10>   :silent exec "!run.bat"<cr>
+    map <S-F10>   :slient exec "!debug.bat"<cr>
+else
+    set makeprg=build.sh
+    map <F10>   :silent exec "!run.sh"<cr>
+    map <S-F10>   :slient exec "!debug.sh"<cr>
+endif
+
+map <F11>   :mksession session.vim<cr>
+map <S-F11> :source    session.vim<cr>
+
 
