@@ -6,6 +6,7 @@
 """"""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/vimfiles/plugged')
 Plug 'vim-scripts/a.vim'
+Plug 'tikhomirov/vim-glsl'
 "Plug 'xolox/vim-misc'
 "Plug 'Valloric/YouCompleteMe' Too Aggressive!
 call plug#end()
@@ -198,6 +199,8 @@ set path+=./../inc,./../include
 " Don't indent namespaces
 set cino+=(0
 set cinoptions+=:0
+let c_no_curly_error = 1
+let c_no_bracket_error = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Now, add new key mappings
