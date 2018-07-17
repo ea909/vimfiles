@@ -6,6 +6,7 @@
 """"""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/vimfiles/plugged')
 Plug 'vim-scripts/a.vim'
+Plug 'tikhomirov/vim-glsl'
 "Plug 'ludovicchabant/vim-gutentags'
 "Plug 'xolox/vim-misc'
 "Plug 'Valloric/YouCompleteMe' 
@@ -202,6 +203,8 @@ set path+=./../inc,./../include
 " Don't indent namespaces
 set cino+=(0
 set cinoptions+=:0
+let c_no_curly_error = 1
+let c_no_bracket_error = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Now, add new key mappings
@@ -359,4 +362,17 @@ map <S-F11> :source    session.vim<cr>
 
 " Get rid of bad compound literal highlighting
 let c_no_curly_error = 1
+
+""""""""""""""""""""""""""""""""""""""""""
+" title string
+""""""""""""""""""""""""""""""""""""""""""
+
+set titlestring=
+set titlestring+=tab:
+set titlestring+=\ %{tabpagenr()}
+set titlestring+=\ file:
+set titlestring+=\ 
+set titlestring+=%f
+set titlestring+=\ 
+set titlestring+=%m
 
