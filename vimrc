@@ -47,7 +47,7 @@ set expandtab
 " Use 4 spaces in soft tab
 set softtabstop=4
 " Set font
-set gfn=DejaVu_Sans_Mono:h12
+set gfn=DejaVu_Sans_Mono:h11
 " Terminal has a dark background
 " Colorscheme will overwrite below if needed
 set background=dark
@@ -357,4 +357,6 @@ endif
 map <F11>   :mksession session.vim<cr>
 map <S-F11> :source    session.vim<cr>
 
+" Get rid of bad compound literal highlighting
+let c_no_curly_error = 1
 
