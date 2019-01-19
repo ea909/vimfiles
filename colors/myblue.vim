@@ -19,16 +19,28 @@ hi Normal ctermfg=Yellow ctermbg=DarkBlue guifg=#FFE375 guibg=#001E42
 " These are different from the morning scheme
 hi Cursor ctermbg=Brown ctermfg=NONE guibg=DarkOrange guifg=NONE
 hi lCursor ctermbg=Brown ctermfg=NONE guibg=DarkOrange guifg=NONE
-hi Visual term=reverse ctermbg=Brown guibg=#885511
+hi Visual term=reverse ctermbg=DarkRed guibg=#885511
 hi VertSplit term=reverse cterm=reverse gui=reverse ctermfg=Gray ctermbg=Gray guifg=gray80 guibg=gray80
 hi WildMenu term=standout ctermbg=Brown ctermfg=White guibg=DarkOrange guifg=White
-hi IncSearch term=reverse cterm=none gui=none ctermbg=Brown ctermfg=White guibg=DarkOrange guifg=White
+
+if has("win32") || has("win64") 
+    hi IncSearch term=reverse cterm=none gui=none ctermbg=Red ctermfg=White guibg=DarkOrange guifg=White
+else
+    hi IncSearch term=reverse cterm=none gui=none ctermbg=DarkRed ctermfg=White guibg=DarkOrange guifg=White
+endif
+
 hi CursorLine term=underline cterm=none ctermbg=DarkGray guibg=#003050
 hi CursorColumn term=reverse cterm=none ctermbg=DarkGray guibg=#003050
 hi NonText term=bold cterm=bold ctermbg=Black ctermfg=Gray gui=bold guifg=grey50 guibg=#000030
 hi EndOfBuffer term=none cterm=none ctermbg=Black ctermfg=Black gui=bold guifg=grey50 guibg=#000030
-hi StatusLine term=reverse,bold cterm=reverse,bold gui=reverse,bold ctermfg=Gray guifg=gray80
-hi StatusLineNC term=reverse cterm=reverse gui=reverse ctermfg=Gray guifg=gray80
+
+if has("win32") || has("win64") 
+    hi StatusLine term=reverse,bold cterm=bold gui=reverse,bold ctermbg=Gray ctermfg=DarkBlue guifg=gray80
+    hi StatusLineNC term=reverse cterm=bold gui=reverse ctermbg=Gray ctermfg=DarkBlue guifg=gray80
+else
+    hi StatusLine term=reverse,bold cterm=reverse,bold gui=reverse,bold ctermfg=Gray guifg=gray80
+    hi StatusLineNC term=reverse cterm=reverse gui=reverse ctermfg=Gray guifg=gray80
+endif
 
 " Groups used in the 'highlight' and 'guicursor' options default value.
 " These are same as the morning scheme
@@ -63,8 +75,8 @@ hi PreProc ctermfg=Magenta guifg=#B57FCA
 hi Special  term=bold ctermfg=DarkMagenta guibg=grey25
 
 " Strings have a slight red tint (useful to tell if not delimited)
-hi String      term=underline ctermfg=Yellow guifg=#FFBA75
-hi SpecialChar term=underline ctermfg=Yellow guifg=#FFBA75 guibg=#102E52
+hi String      term=underline ctermfg=Brown guifg=#FFBA75
+hi SpecialChar term=underline ctermfg=Brown guifg=#FFBA75 guibg=#102E52
 
 " Type definitions (struct, typedef) stand out a little bit, slightly diff
 " yellow
@@ -80,8 +92,8 @@ hi Todo ctermbg=Yellow ctermfg=Black guibg=Gold
 " Errors are red
 hi Error guifg=Red guibg=gray25
 
-" Everything else looks the same, White
-hi Constant term=underline ctermfg=Yellow guifg=#FFBA75 
+" Everything else looks the same, 
+hi Constant term=underline ctermfg=Brown guifg=#FFBA75 
 hi Type ctermfg=Yellow guifg=#FFE375 gui=none
 hi Identifier guifg=#FFE375   
 hi Ignore ctermfg=Red guifg=grey90
