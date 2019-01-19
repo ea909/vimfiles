@@ -85,6 +85,7 @@ hi Typedef ctermfg=White   guifg=#FFD375 gui=none
 
 " Keywords are Yellow
 hi Statement ctermfg=White guifg=#FFD375 gui=none
+hi Function ctermfg=White guifg=#FFD375 gui=none
 
 " TODO, etc are yellow
 hi Todo ctermbg=Yellow ctermfg=Black guibg=Gold
