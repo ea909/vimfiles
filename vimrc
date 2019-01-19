@@ -28,7 +28,9 @@ set backup
 " Always use mouse
 set mouse=a
 " highlight line cursor is on
-set cursorline
+if has("gui_running")
+    set cursorline
+endif
 " perform incremental search
 set incsearch
 " no spacing between lines
@@ -48,14 +50,23 @@ set expandtab
 " Use 4 spaces in soft tab
 set softtabstop=4
 " Set font
-set gfn=DejaVu_Sans_Mono:h11
+if has("win32") || has("win64")
+    set gfn=DejaVu_Sans_Mono:h11
+else
+    set gfn=DejaVu\ Sans\ Mono\ 12
+endif
+
 " Terminal has a dark background
 " Colorscheme will overwrite below if needed
 set background=dark
-" 80 columns ( uncomment if used in terminal )
-set columns=80
-" 50 lines
-set lines=50
+
+if has("gui_running")
+    " 80 columns ( unless  if used in terminal )
+    set columns=80
+    " 50 lines
+    set lines=50
+endif
+
 " Get rid of menu, etc
 set guioptions=
 " Set folding method to use markers
@@ -146,7 +157,6 @@ noremap <C-Q>		<C-V>
 syntax on
 let c_comment_strings=0
 
-" Use a dark colorscheme at night when lighting is poorer
 let startup_hour=str2nr(strftime("%H"))
 if startup_hour < 18 && startup_hour > 4
     colorscheme myblue
