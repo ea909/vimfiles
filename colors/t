@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+typedef struct thing {
+    int a, b, c;
+} thing;
+
+int main(int argc, char **argv) {
+    thing t;
+    if (t.a == t.b) {
+        t.c = t.a * t.b;
+    } else {
+        t.c = t.c + 2;
+    }
+
+    printf("The value is %d\n", t.c);
+
+    return 0;
+}

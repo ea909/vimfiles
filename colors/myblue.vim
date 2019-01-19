@@ -25,7 +25,7 @@ hi WildMenu term=standout ctermbg=Yellow ctermfg=White guibg=DarkOrange guifg=Wh
 hi IncSearch term=reverse cterm=reverse gui=none guibg=DarkOrange guifg=White
 hi CursorLine term=underline cterm=underline guibg=#003050
 hi CursorColumn term=reverse ctermbg=grey guibg=#003050
-hi NonText term=bold ctermfg=Blue gui=bold guifg=grey50 guibg=grey15
+hi NonText term=bold ctermfg=Blue gui=bold guifg=grey50 guibg=#000030
 hi StatusLine term=reverse,bold cterm=reverse,bold gui=reverse,bold guifg=gray80
 hi StatusLineNC term=reverse cterm=reverse gui=reverse guifg=gray80
 
@@ -39,7 +39,7 @@ hi Directory term=bold cterm=bold guifg=White gui=bold
 hi LineNr term=underline ctermfg=Brown guifg=DarkYellow
 hi MoreMsg term=bold ctermfg=DarkGreen gui=bold guifg=SeaGreen
 hi Question term=standout ctermfg=DarkGreen gui=bold guifg=SeaGreen
-hi Search term=reverse ctermbg=Yellow ctermfg=NONE guibg=Yellow guifg=NONE
+hi Search term=reverse ctermbg=Yellow ctermfg=NONE guibg=#885511 guifg=NONE
 hi SpecialKey term=bold ctermfg=DarkBlue guifg=Blue
 hi WarningMsg term=standout ctermfg=DarkRed guifg=Red
 hi Folded term=standout ctermbg=Grey ctermfg=DarkBlue guibg=LightGrey guifg=DarkBlue

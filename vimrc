@@ -149,9 +149,9 @@ let c_comment_strings=0
 " Use a dark colorscheme at night when lighting is poorer
 let startup_hour=str2nr(strftime("%H"))
 if startup_hour < 18 && startup_hour > 4
-    colorscheme mybright
+    colorscheme myblue
 else
-    colorscheme mydark
+    colorscheme myblue
 endif
 
 " enable auto indent based on filetype
@@ -233,7 +233,7 @@ map <leader>te :set showtabline=1<cr>
 map <leader>td :set showtabline=0<cr>
 
 " run build
-map <leader>b :make<cr>
+map <leader>b :make<cr><cr>:cw<cr>
 
 " Show and hide menu bar
 map <leader>me :set guioptions=m<cr>
@@ -345,7 +345,7 @@ map <F7> :tabnext 7<cr>
 map <F8> :tabnext 8<cr>
 
 "F9-F12 are build, run, debug, save session
-map <F9>    :make<cr>
+map <F9>    :make<cr><cr>:cw<cr>
 
 if has("win32")
     set makeprg=build.bat
@@ -366,7 +366,6 @@ let c_no_curly_error = 1
 """"""""""""""""""""""""""""""""""""""""""
 " title string
 """"""""""""""""""""""""""""""""""""""""""
-
 set titlestring=
 set titlestring+=tab:
 set titlestring+=\ %{tabpagenr()}
