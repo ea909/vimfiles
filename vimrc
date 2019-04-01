@@ -259,6 +259,7 @@ imap <C-Tab>   <C-x><C-o>
 
 " Alternative to ESC
 inoremap kj <ESC>
+tnoremap kj <C-\><C-n>
 
 " a.vim mappings, switch to and split to
 map <leader>a :A<cr>
@@ -362,9 +363,9 @@ if has("win32")
     map <F10>   :silent exec "!run.bat"<cr>
     map <S-F10>   :slient exec "!debug.bat"<cr>
 else
-    set makeprg=build.sh
-    map <F10>   :silent exec "!run.sh"<cr>
-    map <S-F10>   :slient exec "!debug.sh"<cr>
+    set makeprg=build
+    map <F10>   :silent exec "!run"<cr>
+    map <S-F10>   :slient exec "!debug"<cr>
 endif
 
 map <F11>   :mksession session.vim<cr>
