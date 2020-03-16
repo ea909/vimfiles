@@ -355,6 +355,15 @@ map <F6> :tabnext 6<cr>
 map <F7> :tabnext 7<cr>
 map <F8> :tabnext 8<cr>
 
+tnoremap <F1> <C-\><C-n>:tabnext 1<cr>
+tnoremap <F2> <C-\><C-n>:tabnext 2<cr>
+tnoremap <F3> <C-\><C-n>:tabnext 3<cr>
+tnoremap <F4> <C-\><C-n>:tabnext 4<cr>
+tnoremap <F5> <C-\><C-n>:tabnext 5<cr>
+tnoremap <F6> <C-\><C-n>:tabnext 6<cr>
+tnoremap <F7> <C-\><C-n>:tabnext 7<cr>
+tnoremap <F8> <C-\><C-n>:tabnext 8<cr>
+
 "F9-F12 are build, run, debug, save session
 map <F9>    :make<cr><cr>:cw<cr>
 
@@ -362,10 +371,12 @@ if has("win32")
     set makeprg=build.bat
     map <F10>   :silent exec "!run.bat"<cr>
     map <S-F10>   :slient exec "!debug.bat"<cr>
+    map <F12>   :silent exec "!run_ctags.bat"<cr>
 else
     set makeprg=build
     map <F10>   :silent exec "!run"<cr>
     map <S-F10>   :slient exec "!debug"<cr>
+    map <F12>   :silent exec "!run_ctags"<cr>
 endif
 
 map <F11>   :mksession session.vim<cr>
