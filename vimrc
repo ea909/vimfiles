@@ -28,7 +28,9 @@ set backup
 " Always use mouse
 set mouse=a
 " highlight line cursor is on
-set cursorline
+if has("gui_running")
+    set cursorline
+endif
 " perform incremental search
 set incsearch
 " no spacing between lines
@@ -48,14 +50,23 @@ set expandtab
 " Use 4 spaces in soft tab
 set softtabstop=4
 " Set font
-set gfn=Droid_Sans_Mono:h12
+if has("win32") || has("win64")
+    set gfn=Droid_Sans_Mono:h12
+else
+    set gfn=DejaVu\ Sans\ Mono\ 12
+endif
+
 " Terminal has a dark background
 " Colorscheme will overwrite below if needed
 set background=dark
-" 80 columns ( uncomment if used in terminal )
-set columns=80
-" 50 lines
-set lines=50
+
+if has("gui_running")
+    " 80 columns ( unless  if used in terminal )
+    set columns=80
+    " 50 lines
+    set lines=50
+endif
+
 " Get rid of menu, etc
 set guioptions=
 " Set folding method to use markers
@@ -146,12 +157,11 @@ noremap <C-Q>		<C-V>
 syntax on
 let c_comment_strings=0
 
-" Use a dark colorscheme at night when lighting is poorer
 let startup_hour=str2nr(strftime("%H"))
 if startup_hour < 18 && startup_hour > 4
-    colorscheme mybright
+    colorscheme myblue
 else
-    colorscheme mydark
+    colorscheme myblue
 endif
 
 colorscheme myblue
@@ -363,10 +373,12 @@ if has("win32")
     set makeprg=build.bat
     map <F10>   :silent exec "!run.bat"<cr>
     map <S-F10>   :slient exec "!debug.bat"<cr>
+    map <F12>   :silent exec "!run_ctags.bat"<cr>
 else
-    set makeprg=build.sh
-    map <F10>   :silent exec "!run.sh"<cr>
-    map <S-F10>   :slient exec "!debug.sh"<cr>
+    set makeprg=build
+    map <F10>   :silent exec "!run"<cr>
+    map <S-F10>   :slient exec "!debug"<cr>
+    map <F12>   :silent exec "!run_ctags"<cr>
 endif
 
 map <F11>   :mksession session.vim<cr>
@@ -378,7 +390,6 @@ let c_no_curly_error = 1
 """"""""""""""""""""""""""""""""""""""""""
 " title string
 """"""""""""""""""""""""""""""""""""""""""
-
 set titlestring=
 set titlestring+=tab:
 set titlestring+=\ %{tabpagenr()}
