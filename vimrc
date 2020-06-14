@@ -48,7 +48,7 @@ set expandtab
 " Use 4 spaces in soft tab
 set softtabstop=4
 " Set font
-set gfn=DejaVu_Sans_Mono:h11
+set gfn=Droid_Sans_Mono:h12
 " Terminal has a dark background
 " Colorscheme will overwrite below if needed
 set background=dark
@@ -154,6 +154,8 @@ else
     colorscheme mydark
 endif
 
+colorscheme myblue
+
 " enable auto indent based on filetype
 filetype on
 filetype plugin indent on
@@ -233,7 +235,7 @@ map <leader>te :set showtabline=1<cr>
 map <leader>td :set showtabline=0<cr>
 
 " run build
-map <leader>b :make<cr>
+map <leader>b :make<cr><cr>:cw<cr>
 
 " Show and hide menu bar
 map <leader>me :set guioptions=m<cr>
@@ -244,11 +246,12 @@ map <leader>ve :set virtualedit=all<cr>
 map <leader>vd :set virtualedit=<cr>
 
 " Autcomplete mappings
-imap <C-Space> <C-x><C-]> 
+imap <Nul> <C-x><C-]> 
 imap <C-Tab>   <C-x><C-o>
 
 " Alternative to ESC
 inoremap kj <ESC>
+tnoremap kj <C-\><C-n>
 
 " a.vim mappings, switch to and split to
 map <leader>a :A<cr>
@@ -344,8 +347,17 @@ map <F6> :tabnext 6<cr>
 map <F7> :tabnext 7<cr>
 map <F8> :tabnext 8<cr>
 
+tnoremap <F1> <C-\><C-n>:tabnext 1<cr>
+tnoremap <F2> <C-\><C-n>:tabnext 2<cr>
+tnoremap <F3> <C-\><C-n>:tabnext 3<cr>
+tnoremap <F4> <C-\><C-n>:tabnext 4<cr>
+tnoremap <F5> <C-\><C-n>:tabnext 5<cr>
+tnoremap <F6> <C-\><C-n>:tabnext 6<cr>
+tnoremap <F7> <C-\><C-n>:tabnext 7<cr>
+tnoremap <F8> <C-\><C-n>:tabnext 8<cr>
+
 "F9-F12 are build, run, debug, save session
-map <F9>    :make<cr>
+map <F9>    :make<cr><cr>:cw<cr>
 
 if has("win32")
     set makeprg=build.bat
