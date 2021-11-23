@@ -243,7 +243,7 @@ map <leader>te :set showtabline=1<cr>
 map <leader>td :set showtabline=0<cr>
 
 " run build
-map <leader>b :make<cr><cr>:cw<cr>
+map <leader>b :make<cr><cr>:vertical botright cw<cr>
 
 " Show and hide menu bar
 map <leader>me :set guioptions=m<cr>
@@ -254,11 +254,12 @@ map <leader>ve :set virtualedit=all<cr>
 map <leader>vd :set virtualedit=<cr>
 
 " Autcomplete mappings
-imap <C-Space> <C-x><C-]> 
+imap <C-Space> <C-x><C-o> 
 imap <C-Tab>   <C-x><C-o>
 
 " Alternative to ESC
 inoremap kj <ESC>
+tnoremap kj <C-\><C-n>
 
 " a.vim mappings, switch to and split to
 map <leader>a :A<cr>
@@ -355,20 +356,23 @@ map <F7> :tabnext 7<cr>
 map <F8> :tabnext 8<cr>
 
 "F9-F12 are build, run, debug, save session
-map <F9>    :make<cr><cr>:cw<cr>
+map <F9>    :make<cr><cr>:vertical botright cw<cr>
 
 if has("win32")
     set makeprg=build.bat
     map <F10>   :silent exec "!run.bat"<cr>
     map <S-F10>   :slient exec "!debug.bat"<cr>
+    map <F12>   :silent exec "!gen_tags.bat"<cr>
 else
     set makeprg=build.sh
     map <F10>   :silent exec "!run.sh"<cr>
     map <S-F10>   :slient exec "!debug.sh"<cr>
+    map <F12>   :silent exec "!gen_tags.sh"<cr>
 endif
 
 map <F11>   :mksession session.vim<cr>
 map <S-F11> :source    session.vim<cr>
+
 
 " Get rid of bad compound literal highlighting
 let c_no_curly_error = 1
