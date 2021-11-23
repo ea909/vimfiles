@@ -13,7 +13,7 @@ endif
 
 let colors_name = "morning"
 
-hi Normal ctermfg=Yellow ctermbg=DarkBlue guifg=#FFE375 guibg=#001E42
+hi Normal term=none ctermfg=Yellow ctermbg=DarkBlue guifg=#FFE375 guibg=#001E42
 
 " Groups used in the 'highlight' and 'guicursor' options default value.
 " These are different from the morning scheme
@@ -65,27 +65,27 @@ hi DiffDelete term=bold ctermfg=Blue ctermbg=LightCyan gui=bold guifg=Blue guibg
 " ------------------------------
 
 " Titles (in markdown, mostly) are red
-hi Title term=bold ctermfg=Red gui=none guifg=Tomato
+hi Title term=bold ctermbg=DarkBlue ctermfg=Red gui=none guifg=Tomato
 
 " Comments and Preprocessor stand out from source code:
-hi Comment ctermfg=Green guifg=#66bb66
-hi PreProc ctermfg=Magenta guifg=#B57FCA
+hi Comment ctermbg=DarkBlue ctermfg=Green guifg=#66bb66
+hi PreProc ctermbg=DarkBlue ctermfg=Magenta guifg=#B57FCA
 
 " Special chars (ex '\n') are grouped by bright background
-hi Special  term=bold ctermfg=DarkMagenta guibg=grey25
+hi Special  term=bold ctermbg=DarkBlue ctermfg=DarkMagenta guibg=grey25
 
 " Strings have a slight red tint (useful to tell if not delimited)
-hi String      term=underline ctermfg=Brown guifg=#FFBA75
-hi SpecialChar term=underline ctermfg=Brown guifg=#FFBA75 guibg=#102E52
+hi String      term=underline ctermbg=DarkBlue ctermfg=Brown guifg=#FFBA75
+hi SpecialChar term=underline ctermbg=DarkBlue ctermfg=Brown guifg=#FFBA75 guibg=#102E52
 
 " Type definitions (struct, typedef) stand out a little bit, slightly diff
 " yellow
-hi Structure ctermfg=White guifg=#FFD375 gui=none
-hi Typedef ctermfg=White   guifg=#FFD375 gui=none
+hi Structure ctermbg=DarkBlue ctermfg=White guifg=#FFD375 gui=none
+hi Typedef ctermbg=DarkBlue ctermfg=White   guifg=#FFD375 gui=none
 
 " Keywords are Yellow
-hi Statement ctermfg=White guifg=#FFD375 gui=none
-hi Function ctermfg=White guifg=#FFD375 gui=none
+hi Statement ctermbg=DarkBlue ctermfg=White guifg=#FFD375 gui=none
+hi Function ctermbg=DarkBlue ctermfg=White guifg=#FFD375 gui=none
 
 " TODO, etc are yellow
 hi Todo ctermbg=Yellow ctermfg=Black guibg=Gold
@@ -94,9 +94,9 @@ hi Todo ctermbg=Yellow ctermfg=Black guibg=Gold
 hi Error guifg=Red guibg=gray25
 
 " Everything else looks the same, 
-hi Constant term=underline ctermfg=Brown guifg=#FFBA75 
-hi Type ctermfg=Yellow guifg=#FFE375 gui=none
-hi Identifier guifg=#FFE375   
-hi Ignore ctermfg=Red guifg=grey90
+hi Constant term=underline ctermbg=DarkBlue ctermfg=Brown guifg=#FFBA75 
+hi Type ctermbg=DarkBlue ctermfg=Yellow guifg=#FFE375 gui=none
+hi Identifier ctermbg=DarkBlue guifg=#FFE375   
+hi Ignore ctermbg=DarkBlue ctermfg=Red guifg=grey90
 
 "

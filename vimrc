@@ -51,7 +51,7 @@ set expandtab
 set softtabstop=4
 " Set font
 if has("win32") || has("win64")
-    set gfn=DejaVu_Sans_Mono:h11
+    set gfn=Droid_Sans_Mono:h12
 else
     set gfn=DejaVu\ Sans\ Mono\ 12
 endif
@@ -164,6 +164,8 @@ else
     colorscheme myblue
 endif
 
+colorscheme myblue
+
 " enable auto indent based on filetype
 filetype on
 filetype plugin indent on
@@ -255,6 +257,7 @@ map <leader>vd :set virtualedit=<cr>
 
 " Autcomplete mappings
 imap <C-Space> <C-x><C-o> 
+imap <Nul>     <C-x><C-o> 
 imap <C-Tab>   <C-x><C-o>
 
 " Alternative to ESC
@@ -273,25 +276,11 @@ map <leader>j g<C-]>
 map <leader>k <C-T>
 map <leader>. :pclose<cr>
 
-" YCM based completion and nav
-"map <leader>, :pclose<cr>:w<cr>:YcmCompleter GoTo<cr>:pedit<cr><C-O>
-"map <leader>j :YcmCompleter GoTo<cr>
-"map <leader>k <C-O>
-"map <leader>. :pclose<cr>
-
 " Fix navigation in K&R style
 map [[ ?{<CR>w99[{
 map ][ /}<CR>b99]}
 map ]] j0[[%/{<CR>
 map [] k$][%?}<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" External tools
-""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-" I actually /don't/ want prototypes
-"map <F8> :!ctags -R --fields=+iaS --extra=+q .<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Some abbreviations
@@ -318,25 +307,8 @@ func! ResetCounter()
 endfunc
 
 """"""""""""""""""""""""""""""""""""""""""
-" Options for ycm
+" Completion settings
 """"""""""""""""""""""""""""""""""""""""""
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_warning_symbol     = 'W'
-let g:ycm_error_symbol       = 'E'
-let g:ycm_enable_diagnostic_signs = 1
-let g:ycm_goto_buffer_command = 'same-buffer'
-
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_min_num_of_chars_for_completion = 3
-let g:ycm_min_num_identifier_candidate_chars = 3
-let g:ycm_max_num_identifier_candidates = 10
-
-let g:ycm_enable_diagnostic_highlighting = 0
-let g:ycm_always_populate_location_list = 1
-
-let g:ycm_filepath_completion_use_working_dir = 1
 
 set completeopt=menuone,preview
 
@@ -355,27 +327,33 @@ map <F6> :tabnext 6<cr>
 map <F7> :tabnext 7<cr>
 map <F8> :tabnext 8<cr>
 
+tnoremap <F1> <C-\><C-n>:tabnext 1<cr>
+tnoremap <F2> <C-\><C-n>:tabnext 2<cr>
+tnoremap <F3> <C-\><C-n>:tabnext 3<cr>
+tnoremap <F4> <C-\><C-n>:tabnext 4<cr>
+tnoremap <F5> <C-\><C-n>:tabnext 5<cr>
+tnoremap <F6> <C-\><C-n>:tabnext 6<cr>
+tnoremap <F7> <C-\><C-n>:tabnext 7<cr>
+tnoremap <F8> <C-\><C-n>:tabnext 8<cr>
+
 "F9-F12 are build, run, debug, save session
 map <F9>    :make<cr><cr>:vertical botright cw<cr>
 
 if has("win32")
     set makeprg=build.bat
     map <F10>   :silent exec "!run.bat"<cr>
-    map <S-F10>   :slient exec "!debug.bat"<cr>
+    map <S-F10> :slient exec "!debug.bat"<cr>
     map <F12>   :silent exec "!gen_tags.bat"<cr>
 else
     set makeprg=build.sh
     map <F10>   :silent exec "!run.sh"<cr>
-    map <S-F10>   :slient exec "!debug.sh"<cr>
+    map <S-F10> :slient exec "!debug.sh"<cr>
     map <F12>   :silent exec "!gen_tags.sh"<cr>
 endif
 
-map <F11>   :mksession session.vim<cr>
-map <S-F11> :source    session.vim<cr>
-
-
-" Get rid of bad compound literal highlighting
-let c_no_curly_error = 1
+" Not used enough to take a button...
+" map <F11>   :mksession session.vim<cr>
+" map <S-F11> :source    session.vim<cr>
 
 """"""""""""""""""""""""""""""""""""""""""
 " title string
