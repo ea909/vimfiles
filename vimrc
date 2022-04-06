@@ -62,7 +62,7 @@ set background=dark
 
 if has("gui_running")
     " 80 columns ( unless  if used in terminal )
-    set columns=80
+    set columns=90
     " 50 lines
     set lines=50
 endif
@@ -72,7 +72,7 @@ set guioptions=
 " Set folding method to use markers
 set foldmethod=marker
 " When typing txt or comments, wrap at 78 chars
-set textwidth=78
+set textwidth=88
 " 200 lines of cmd hist
 set history=200
 " display imcomplete commands
